@@ -1,0 +1,20 @@
+{% extends 'nav.html' %}
+{% block nav %}
+    {% load static %}
+    <!-- <link rel="stylesheet" href="{% static 'css/style.css' %}"> -->
+    <h1 class="text-center" style="text-align: center;font-family: 'Times New Roman', Times, serif;font-weight: bold;">Profile</h1>
+    <div class="jumbotron">
+    <form action=""  method="post" enctype="multipart/form-data">
+        {% csrf_token %}           
+              <table class="table ">
+                {{cform.as_table}}
+                <tr>
+                  <td colspan="2" class="text-center">                    
+                     <button class=" btn btn-success" >Submit</button>                   
+                  </td>
+                </tr>
+              </table>
+          </div>
+    </form>
+  </div>
+  {% endblock nav%}

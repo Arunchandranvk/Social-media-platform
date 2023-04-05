@@ -1,0 +1,25 @@
+{% extends 'nav.html' %}
+{% block nav %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/post.css' %}">
+    <h1 class="text-center" style="text-align: center;background-color:grey;font-family: 'Times New Roman', Times, serif;font-weight: bold;">Confirm Delete</h1>
+    <h4>Are you sure to delete this post?</h4>
+    <div class="container">
+        {{object}}
+        <div class="card mb-5 bg-light" style="width: 100%;">
+            {% if object.image %}
+            <img class="card-img-top" src="{{ object.image.url }}" height="400px" alt="Card image cap">
+            {% endif %}
+            <div class="card-body">
+              <h5 class="card-title">{{object.caption}}</h5>
+              <li class="list-group-item">{{ object.datetime}}</li> 
+            </div>
+          </div>  
+    </div>
+    <form method="post">
+        {% csrf_token %}
+        <div class="container">
+            <button class="btn btn-success">Confirm</button>
+        </div>
+    </form>
+  {% endblock nav %}
